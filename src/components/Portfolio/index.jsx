@@ -3,7 +3,7 @@ import Project from "../Project";
 
 function Portfolio() {
 
-  // Replace links with deployed projects and GitHub repos
+  // Replace links with deployed projects and GitHub repos, descriptions
   const [projects] = useState([
     {
       name: 'poppinMovies',
