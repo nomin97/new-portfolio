@@ -12,6 +12,7 @@ This application uses REACT to build a portfolio for software developers that ca
   - [Questions](#questions)
   
 ## Link
+https://nomins-portfolio.netlify.app/ 
 
 ## Installation 
   Make sure all packages are installed correctly, and npm run develop to run both client and server folders. 
