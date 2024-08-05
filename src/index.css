@@ -8,7 +8,7 @@ main {
   --secondary: #abb4d1;
   --tertiary: #b12704;
   --light: #fafafa;
-  --dark: #19309f;
+  --dark: #283ea9;
   --darker: #4e65d6;
   --alpha: rgba(255,255,255,.7);
   --error: rgb(228, 46, 1);
@@ -35,7 +35,7 @@ body {
   letter-spacing: 0.1em;
   background: var(--primary);
   color: var(--dark);
-  font-family: 'Open Sans', sans-serif;
+  font-family:Georgia, 'Times New Roman', Times, serif;
   text-align: center;
 }
 
@@ -45,7 +45,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Open Sans', sans-serif;
+  font-family:Georgia, 'Times New Roman', Times, serif;
   font-weight: 500;
   margin: 5px 0;
   line-height: 1.25;
@@ -134,10 +134,9 @@ img {
 }
 
 .profileImage {
-  border-radius: 100%;
-  margin: 50px;
-  display: flex;
-  max-width: 400px;
+  max-width: 350px; /* Adjust the size of the image */
+  height: auto;
+  border-radius: 100%; /* Optional: to round the corners of the image */
 }
 
 span[role='img'] {
@@ -196,9 +195,9 @@ header img {
 
 nav {
   position: relative;
-  font-family: 'Open Sans', sans-serif;
+  font-family:Georgia, 'Times New Roman', Times, serif;
   font-size: 2.5rem;
-  margin: 30px 20px;
+  margin: 30px 50px;
 }
 
 nav a:hover {
@@ -245,6 +244,9 @@ textarea {
 }
 
 .container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
   width: 85%;
   max-width: 1200px;
   margin-left: auto;
