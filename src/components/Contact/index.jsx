@@ -1,17 +1,29 @@
 import React, { useState } from 'react';
-
+import emailjs from 'emailjs-com';
 import { validateEmail } from '../../utils/helpers';
 
 function Contact() {
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
-
   const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('')
   const { name, email, message } = formState;
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!errorMessage) {
-      console.log('Submit Form', formState);
+      emailjs.send(
+        'service_ldbvdqe', // Replace with your EmailJS service ID
+        'template_pso2ms8', // Replace with your EmailJS template ID
+        formState,
+        'DwwpQBOUi07QppgAN' // Replace with your EmailJS user ID
+      ).then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
+        setSuccessMessage('Your message has been sent successfully!');
+        setFormState({ name: '', email: '', message: '' });
+      }).catch((err) => {
+        console.log('FAILED...', err);
+        setErrorMessage('Failed to send your message. Please try again later.');
+      });
     }
   };
 
@@ -38,23 +50,45 @@ function Contact() {
 
   return (
     <section>
-      <h1 data-testid="h1tag">    </h1>
       <form id="contact-form" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">Name:</label>
-          <input type="text" name="name" defaultValue={name} onBlur={handleChange} />
+          <input
+            type="text"
+            name="name"
+            value={name}
+            onChange={handleChange}
+            required
+          />
         </div>
         <div>
           <label htmlFor="email">Email address:</label>
-          <input type="email" name="email" defaultValue={email} onBlur={handleChange} />
-        </div> 
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={handleChange}
+            required
+          />
+        </div>
         <div>
           <label htmlFor="message">Message:</label>
-          <textarea name="message" rows="5" defaultValue={message} onBlur={handleChange} />
+          <textarea
+            name="message"
+            rows="5"
+            value={message}
+            onChange={handleChange}
+            required
+          />
         </div>
         {errorMessage && (
           <div>
             <p className="error-text">{errorMessage}</p>
+          </div>
+        )}
+        {successMessage && (
+          <div>
+            <p className="success-text">{successMessage}</p>
           </div>
         )}
         <button data-testid="button" type="submit">Submit</button>
@@ -62,5 +96,6 @@ function Contact() {
     </section>
   );
 }
+
 
 export default Contact;
