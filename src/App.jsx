@@ -17,10 +17,6 @@ function App() {
       <main>
         <Page currentPage={currentPage} />
       </main>
-      <div>
-      <h1>My Portfolio</h1>
-      <Contact />
-    </div>
       <Footer />
     </div>
   );
