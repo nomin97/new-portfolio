@@ -6,7 +6,7 @@ import About from './components/About/index.jsx';
 import Portfolio from './components/Portfolio/index.jsx';
 import Contact from './components/Contact/index.jsx';
 import Resume from './components/Resume/index.jsx';
-import './index.css';
+import './index.css'; 
 
 const router = createBrowserRouter([
   {
